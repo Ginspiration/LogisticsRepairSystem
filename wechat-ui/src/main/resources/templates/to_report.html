@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>后勤报修系统</title>
+    <!-- 引入 WeUI CDN 链接 -->
+    <!--<link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/>-->
+    <link rel="stylesheet"  th:href="@{/js/weui/weui-2.3.0.css}" />
+    <script type="text/javascript" th:src="@{/js/jQuery/jquery-2.2.3.min.js}"></script>
+    <!-- head 中 -->
+    <!--<link rel="stylesheet" th:href="" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">-->
+    <link rel="stylesheet"  th:href="@{/js/weui/weui.min-1.1.3.css}" />
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">-->
+    <link rel="stylesheet"  th:href="@{/js/weui/jquery-weui-1.2.1.css}" />
+
+    <style>
+        .font_size{
+            font-size: smaller;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="weui-form">
+        <div class="weui-form__text-area">
+            <h2 class="weui-form__title">后勤报修系统</h2>
+            <div class="weui-form__desc">请填写一下信息方便报修</div>
+        </div>
+        <div class="weui-form__control-area">
+            <div class="weui-cells__group weui-cells__group_form">
+                <!--        <div class="weui-cells__title">表单组标题</div>-->
+                <div class="weui-cells">
+                    <label for="name" class="weui-cell weui-cell_active">
+                        <div class="weui-cell__hd"><span class="weui-label font_size">姓名(必填)</span></div>
+                        <div class="weui-cell__bd">
+                            <input id="name" name="name" class="weui-input" placeholder="你的真实姓名"/>
+                        </div>
+                    </label>
+                    <label for="number" class="weui-cell weui-cell_active">
+                        <div class="weui-cell__hd"><span class="weui-label font_size">学号/教工号</span></div>
+                        <div class="weui-cell__bd">
+                            <input id="number" name="number" class="weui-input" placeholder="填写学号" type="number" pattern="[0-9]*"/>
+                        </div>
+                    </label>
+                    <label for="phone" class="weui-cell weui-cell_active">
+                        <div class="weui-cell__hd"><span class="weui-label font_size">联系电话(必填)</span></div>
+                        <div class="weui-cell__bd">
+                            <input id="phone" name="phone" class="weui-input" placeholder="填写联系电话号码" type="number"
+                                   pattern="[0-9]*"/>
+                        </div>
+                    </label>
+                    <label for="faculty" class="weui-cell weui-cell_active">
+                        <div class="weui-cell__hd"><span class="weui-label font_size" >所属分院</span></div>
+                        <div class="weui-cell__bd">
+                            <input id="faculty" name="faculty" class="weui-input" placeholder="填写分院"/>
+                        </div>
+                    </label>
+                    <label for="address" class="weui-cell weui-cell_active">
+                        <div class="weui-cell__hd"><span class="weui-label font_size">报修地点(必填)</span></div>
+                        <div class="weui-cell__bd">
+                            <input id="address" name="address" class="weui-input" placeholder="填写地点"/>
+                        </div>
+                    </label>
+
+
+                    <!--图片上传-->
+
+                    <div class="page">
+                        <div class="page__bd">
+                            <div role="dialog" aria-hidden="true" aria-modal="true" class="weui-gallery" id="gallery">
+                                <span role="img" tabindex="0" class="weui-gallery__img" id="galleryImg"></span>
+                                <div class="weui-gallery__opr">
+                                    <a role="button" aria-label="删除" href="javascript:" class="weui-gallery__del">
+                                        <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="weui-cells weui-cells_form">
+                                <div class="weui-cell  weui-cell_uploader">
+                                    <div class="weui-cell__bd">
+                                        <div class="weui-uploader">
+                                            <div class="weui-uploader__hd" role="option"
+                                                 aria-labelledby="js_uploader_title js_a11y_comma js_uploader_current_num js_uploader_unit js_a11y_comma js_uploader_max_tips js_uploader_max_num js_uploader_unit">
+                                                <p id="js_uploader_title" class="weui-uploader__title font_size">上传一张图片为证</p>
+                                            </div>
+                                            <div class="weui-uploader__bd">
+                                                <ul class="weui-uploader__files" id="uploaderFiles">
+                                                </ul>
+                                                <div class="weui-uploader__input-box">
+                                                    <input id="uploaderInput" class="weui-uploader__input" type="file"
+                                                           accept="image/*" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--图片上传-->
+
+
+                    <div class="weui-form__control-area">
+                        <div class="weui-cells__group weui-cells__group_form">
+                            <div class="weui-cells__title font_size">问题描述(必填)</div>
+                            <div class="weui-cells weui-cells_form">
+                                <div class="weui-cell weui-cell_active">
+                                    <div class="weui-cell__bd">
+                                        <textarea name="description" class="weui-textarea" placeholder="请描述你所报修的问题" rows="3"></textarea>
+                                        <div role="option" aria-live="polite" class="weui-textarea-counter"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="weui-form__opr-area">
+                        <a role="button"  aria-disabled="false" class="weui-btn weui-btn_primary"
+                           href="javascript:" id="showTooltips" onclick="submitReport()">确定</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--将值赋给hidden域-->
+    <input type="hidden" th:value="${openId}" id="openIdValue"/>
+
+
+</div>
+<script type="text/javascript">
+    //Js 获取hidden的隐藏域
+    var openId=$("#openIdValue").val();
+    var imgIndex = 0;
+    var imgCount = 0;
+    function submitReport(){
+        const formData = new FormData();
+        const Img = $('#uploaderInput')[0]
+        for (let i = 0; i < Img.files.length; i++) {
+            formData.append('file', Img.files[i])
+        }
+        const name = $("input[name='name']").val()
+        const number = $("input[name='number']").val()
+        const phone = $("input[name='phone']").val()
+        const faculty = $("input[name='faculty']").val()
+        const address = $("input[name='address']").val()
+        const description = $("textarea[name='description']").val()
+        if(name.trim()===''||name.trim()===null){
+            $.alert("请填写姓名！")
+            return false
+        }
+        if(phone.trim()===''||phone.trim()===null){
+            $.alert("请填写手机号！")
+            return false
+        }
+        if(address.trim()===''||address.trim()===null){
+            $.alert("请填写报修地址！")
+            return false
+        }
+        if(description.trim()===''||description.trim()===null){
+            $.alert("请填写具体描述！")
+            return false
+        }
+        $.showLoading("正在上传....");
+        formData.append('name',name)
+        formData.append('number',number)
+        formData.append('phone',phone)
+        formData.append('faculty',faculty)
+        formData.append('address',address)
+        formData.append('description',description)
+        $.ajax({
+            url: '/report/to_report/get/'+openId,
+            type: 'post',
+            dataType: 'text',
+            data: formData,
+            cache: false,
+            //async: false,
+            //不处理数据
+            processData: false,
+            //不设置内容类型
+            contentType: false,
+            success: function (resp) {
+                if (resp==='ok'){
+                    window.location.href = "/report/to_report/success"
+                }else{
+                    window.location.href = "/report/to_report/error"
+                }
+            }
+        })
+    }
+    function deleteImg(imgId) {
+        //如果参数过多，建议通过 object 方式传入
+        $.confirm({
+            title: '是否删除？',
+            text: '',
+            onOK: function () {
+                //点击确认
+                $("#imgId" + imgId).remove()
+                $('#js_uploader_current_num').text(--imgCount)
+            },
+            onCancel: function () {
+            }
+        });
+    }
+
+    $(function () {
+        var tmpl = '<li class="weui-uploader__file" role="img" tabindex="0" id="imgId" onclick="deleteImg(deleteId)" style="background-image:url(#url#)">' +
+            '<i class="weui-icon-delete weui-icon_gallery-delete" style="color: #ff0000"></i></li>',
+            $uploaderInput = $("#uploaderInput"),
+            $uploaderFiles = $("#uploaderFiles")
+        ;
+        imgCount = $('#js_uploader_current_num').text()
+        $uploaderInput.on("change", function (e) {
+            if (imgCount >= 1)
+                return;
+            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+
+                if (url) {
+                    src = url.createObjectURL(file);
+                } else {
+                    src = e.target.result;
+                }
+                $uploaderFiles.append($(tmpl.replace('#url#', src).replace('imgId', 'imgId' + imgIndex).replace('deleteId', imgIndex)));
+                imgIndex++;
+                $('#js_uploader_current_num').text(++imgCount)
+            }
+        });
+    });
+</script>
+<!-- body 最后 -->
+<!--<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>-->
+<script th:src="@{/js/jQuery/jquery-2.2.3.min.js}"></script>
+<!--<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>-->
+<script th:src="@{/js/weui/jquery-weui-1.2.1.js}"></script>
+</body>
+</html>

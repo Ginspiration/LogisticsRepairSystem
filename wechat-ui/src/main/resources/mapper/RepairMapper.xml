@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ginspiration.webchatui.mapper.RepairMapper">
+
+<select id="repairRecord" resultType="com.ginspiration.webchatui.vo.RecordVO">
+    SELECT
+        rpr.id repairId,
+        repair_phone repairPhone,
+        report_phone reportPhone,
+        `status`,
+        feedback,
+        repaired_date repairedDate,
+        rpt.id reportId,
+        open_id openId,
+        `name`,
+        number,
+        phone,
+        faculty,
+        sort,
+        address,
+        img_url imgUrl,
+        description,
+        date
+    FROM `repair` rpr, `report` rpt
+    WHERE rpt.phone = rpr.report_phone
+      AND rpt.open_id = #{openId}
+</select>
+
+</mapper>

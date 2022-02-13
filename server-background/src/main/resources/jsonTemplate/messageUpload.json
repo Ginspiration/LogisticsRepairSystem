@@ -1,0 +1,13 @@
+{
+  "articles": [
+    {
+      "thumb_media_id":"THUMB_MEDIA_ID",
+      "author":"AUTHOR",
+      "title":"TITLE",
+      "content":"CONTENT",
+      "show_cover_pic":1,
+      "need_open_comment":0,
+      "only_fans_can_comment":0
+    }
+  ]
+}
