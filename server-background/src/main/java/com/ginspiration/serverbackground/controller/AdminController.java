@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * <p>
@@ -40,6 +41,7 @@ public class AdminController {
     @PostMapping("/getUserInfo")
     @ResponseBody
     public RespCommon getUserInfo(){
+        log.info("用户在线:{}",session.getAttribute("AdminUser"));
         return new RespCommon(200,session.getAttribute("AdminUser"));
     }
 
@@ -52,8 +54,8 @@ public class AdminController {
     @PostMapping("/getAllAdmin")
     @ResponseBody
     public RespCommon getAllAdmin(){
-        adminService.getAllAdmin();
-        return new RespCommon(200,"获取成功");
+        List<Admin> allAdmin = adminService.getAllAdmin();
+        return new RespCommon(200,allAdmin);
     }
     @PostMapping("/del")
     @ResponseBody

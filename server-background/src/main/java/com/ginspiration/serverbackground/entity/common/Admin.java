@@ -3,6 +3,7 @@ package com.ginspiration.serverbackground.entity.common;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -15,6 +16,7 @@ import java.io.Serializable;
  * @since 2022-01-13
  */
 @TableName("admin")
+@Data
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,7 +24,7 @@ public class Admin implements Serializable {
       /**
      * 主键
      */
-        @TableId(value = "id", type = IdType.AUTO)
+      @TableId(value = "id", type = IdType.AUTO)
       private Integer id;
 
       /**

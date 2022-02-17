@@ -1,6 +1,7 @@
 package com.ginspiration.serverbackground.service.impl;
 
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ginspiration.serverbackground.entity.RespCommon;
@@ -43,7 +44,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
                 return new RespCommon(200);
             }
         } else
-            return new RespCommon(500);
+            return new RespCommon(500,"用户不存在！");
     }
 
     @Override
@@ -52,6 +53,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         if (StringUtils.isEmpty(admin.getId())) {
             log.info("新增管理员：{},状态:{}",admin,saveOrUpdate);
         }else {
+            Admin adminTemp = this.query().eq("phone", admin.getPhone()).one();
+            session.setAttribute("AdminUser",adminTemp);
             log.info("更新管理员：{},状态:{}",admin,saveOrUpdate);
         }
     }

@@ -1,0 +1,11 @@
+{
+  "filter":{
+    "is_to_all":false,
+    "tag_id":0
+  },
+  "mpnews":{
+    "media_id":"MEDIA_ID"
+  },
+  "msgtype":"mpnews",
+  "send_ignore_reprint":0
+}

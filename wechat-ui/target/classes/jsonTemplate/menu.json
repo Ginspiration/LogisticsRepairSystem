@@ -1,0 +1,16 @@
+{
+  "button": [
+    {
+      "type": "view",
+      "name": "申请报修记录",
+      "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=SERVER_ADDRESS/repair/record&response_type=code&scope=SCOPE&state=100#wechat_redirect",
+      "key": "record"
+    },
+    {
+      "type": "view",
+      "name": "我要报修",
+      "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=SERVER_ADDRESS/report/to_report&response_type=code&scope=SCOPE&state=101#wechat_redirect",
+      "key": "to_report"
+    }
+  ]
+}
