@@ -7,6 +7,7 @@ import com.ginspiration.webchatui.entity.common.Report;
 import com.ginspiration.webchatui.mapper.ReportMapper;
 import com.ginspiration.webchatui.service.IRepairService;
 import com.ginspiration.webchatui.service.IReportService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 
 @Service
+@Slf4j
 public class IReportServiceImpl extends ServiceImpl<ReportMapper, Report> implements IReportService {
 
     @Autowired
@@ -35,10 +37,12 @@ public class IReportServiceImpl extends ServiceImpl<ReportMapper, Report> implem
         report.setImgUrl(userReport.getImgUrl());
         report.setDate(LocalDateTime.now());
 
+        boolean saveReport = super.save(report);
         Repair repair = new Repair();
+        repair.setReportId(report.getId());
         repair.setReportPhone(userReport.getPhone());
 
-        return saveOrUpdate(report) && repairService.saveOrUpdate(repair);
+        return saveReport && repairService.save(repair);
     }
 
 }

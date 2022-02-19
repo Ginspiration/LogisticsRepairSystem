@@ -1,5 +1,6 @@
 package com.ginspiration.serverbackground.entity.common;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -18,6 +19,15 @@ import java.time.format.DateTimeFormatter;
 public class Report implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @TableField(exist = false)
+    private Integer reportId;
+
+    @TableField(exist = false)
+    private Integer repairId;
+
+    @TableField(exist = false)
+    private String repairPhone;
 
     private Integer id;
 
@@ -77,6 +87,30 @@ public class Report implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(Integer reportId) {
+        this.reportId = reportId;
+    }
+
+    public Integer getRepairId() {
+        return repairId;
+    }
+
+    public void setRepairId(Integer repairId) {
+        this.repairId = repairId;
+    }
+
+    public String getRepairPhone() {
+        return repairPhone;
+    }
+
+    public void setRepairPhone(String repairPhone) {
+        this.repairPhone = repairPhone;
     }
 
     public String getName() {
@@ -163,7 +197,9 @@ public class Report implements Serializable {
     @Override
     public String toString() {
         return "Report{" +
-                "id=" + id +
+                "repairId=" + repairId +
+                "reportId=" + reportId +
+                "repairPhone=" + repairPhone +
                 ", openId='" + openId + '\'' +
                 ", name='" + name + '\'' +
                 ", number=" + number +

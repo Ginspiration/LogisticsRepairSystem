@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author GaoYun
@@ -17,77 +17,87 @@ public class Repair implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-      private Integer id;
+    private Integer id;
 
-      /**
+    private Integer reportId;
+    /**
      * 上报人联系手机
      */
-      private String reportPhone;
+    private String reportPhone;
 
-      /**
+    /**
      * 维修人联系手机
      */
-      private String repairPhone;
+    private String repairPhone;
 
-      /**
+    /**
      * 维修状态,0未开始,1正在,2已结束,3异常
      */
-      private Integer status;
+    private Integer status;
 
-      /**
+    /**
      * 上报人反馈
      */
-      private String feedback;
+    private String feedback;
 
-    
+
     public Integer getId() {
         return id;
     }
 
-      public void setId(Integer id) {
-          this.id = id;
-      }
-    
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(Integer reportId) {
+        this.reportId = reportId;
+    }
+
     public String getReportPhone() {
         return reportPhone;
     }
 
-      public void setReportPhone(String reportPhone) {
-          this.reportPhone = reportPhone;
-      }
-    
+    public void setReportPhone(String reportPhone) {
+        this.reportPhone = reportPhone;
+    }
+
     public String getRepairPhone() {
         return repairPhone;
     }
 
-      public void setRepairPhone(String repairPhone) {
-          this.repairPhone = repairPhone;
-      }
-    
+    public void setRepairPhone(String repairPhone) {
+        this.repairPhone = repairPhone;
+    }
+
     public Integer getStatus() {
         return status;
     }
 
-      public void setStatus(Integer status) {
-          this.status = status;
-      }
-    
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public String getFeedback() {
         return feedback;
     }
 
-      public void setFeedback(String feedback) {
-          this.feedback = feedback;
-      }
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
 
     @Override
     public String toString() {
         return "Repair{" +
-              "id=" + id +
-                  ", reportPhone=" + reportPhone +
-                  ", repairPhone=" + repairPhone +
-                  ", status=" + status +
-                  ", feedback=" + feedback +
-              "}";
+                "id=" + id +
+                "reportId=" + reportId +
+                ", reportPhone=" + reportPhone +
+                ", repairPhone=" + repairPhone +
+                ", status=" + status +
+                ", feedback=" + feedback +
+                "}";
     }
 }

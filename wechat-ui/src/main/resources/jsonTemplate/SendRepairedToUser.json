@@ -1,0 +1,26 @@
+{
+  "touser":"OPENID",
+  "template_id":"TEMPLATE_ID",
+  "data":{
+    "first": {
+      "value":"FIRST",
+      "color":"#173177"
+    },
+    "keyword1":{
+      "value":"KEYWORD1",
+      "color":"#173177"
+    },
+    "keyword2": {
+      "value":"KEYWORD2",
+      "color":"#173177"
+    },
+    "keyword3": {
+      "value":"KEYWORD3",
+      "color":"#173177"
+    },
+    "remark":{
+      "value":"REMARK",
+      "color":"#173177"
+    }
+  }
+}

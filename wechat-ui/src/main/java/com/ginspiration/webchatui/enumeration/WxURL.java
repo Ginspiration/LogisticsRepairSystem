@@ -10,7 +10,9 @@ public enum WxURL {
     ADD_TEMPORARY_MATERIAL//新增临时素材
             ("https://api.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE"),
     WEB_ACCESS_TOKEN_GET_URL
-            (" https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code")
+            (" https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code"),
+    SEND_REPAIRED_TO_USER
+            ("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN")
     ;
     private final String URL;
     WxURL(String url) {

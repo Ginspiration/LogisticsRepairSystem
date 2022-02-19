@@ -14,6 +14,6 @@ import com.ginspiration.serverbackground.entity.common.Repair;
  * @since 2022-01-13
  */
 public interface IRepairService extends IService<Repair> {
-    RespCommon dealWithReport(int id,String reportPhone,String repairPhone,int status);
+    RespCommon dealWithReport(int id,int reportId, String reportPhone,String repairPhone,int status);
     RespCommon getRepairInfoById(int id);
 }

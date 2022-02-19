@@ -1,6 +1,7 @@
 package com.ginspiration.webchatui.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ginspiration.webchatui.entity.RepairedToUser;
 import com.ginspiration.webchatui.entity.common.Repair;
 import com.ginspiration.webchatui.vo.RecordVO;
 
@@ -16,4 +17,5 @@ import java.util.List;
  */
 public interface IRepairService extends IService<Repair> {
     List<RecordVO> repairRecord(String openId);
+    String sendRepairedToUser(RepairedToUser repairedToUser);
 }

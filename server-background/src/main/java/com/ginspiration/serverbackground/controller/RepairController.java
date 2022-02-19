@@ -6,10 +6,7 @@ import com.ginspiration.serverbackground.service.IRepairService;
 import com.ginspiration.serverbackground.vo.DealWithReportVo;
 import com.ginspiration.serverbackground.vo.GetInfoByIdVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -26,8 +23,9 @@ public class RepairController {
     private IRepairService repairService;
 
     @PostMapping("/dealWithReport")
+    @ResponseBody
     public RespCommon dealWithReport(@RequestBody DealWithReportVo deal){
-        return repairService.dealWithReport(deal.getId(),deal.getReportPhone(), deal.getRepairPhone(), deal.getStatus());
+        return repairService.dealWithReport(deal.getRepairId(),deal.getReportId(),deal.getReportPhone(), deal.getRepairPhone(), deal.getStatus());
     }
     @PostMapping("/getRepairInfoById")
     public RespCommon getRepairInfoById(@RequestBody GetInfoByIdVo getInfoById){

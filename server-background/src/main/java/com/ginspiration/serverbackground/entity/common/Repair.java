@@ -20,6 +20,7 @@ public class Repair implements Serializable {
 
     private Integer id;
 
+    private Integer reportId;
     /**
      * 上报人联系手机
      */
@@ -44,6 +45,14 @@ public class Repair implements Serializable {
      * 维修日期
      */
     private LocalDateTime repairedDate;
+
+    public Integer getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(Integer reportId) {
+        this.reportId = reportId;
+    }
 
     public LocalDateTime getRepairedDate() {
         return repairedDate;
@@ -97,6 +106,7 @@ public class Repair implements Serializable {
     public String toString() {
         return "Repair{" +
                 "id=" + id +
+                "reportId="+reportId+
                 ", reportPhone=" + reportPhone +
                 ", repairPhone=" + repairPhone +
                 ", status=" + status +

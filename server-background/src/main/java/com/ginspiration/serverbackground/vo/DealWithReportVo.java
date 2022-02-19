@@ -7,5 +7,6 @@ public class DealWithReportVo {
     private String reportPhone;
     private String repairPhone;
     private Integer status;
-    private Integer id;
+    private Integer repairId;
+    private Integer reportId;
 }

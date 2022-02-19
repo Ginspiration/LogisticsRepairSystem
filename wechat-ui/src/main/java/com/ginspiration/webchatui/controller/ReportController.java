@@ -59,7 +59,7 @@ public class ReportController {
                 String fileName = UUID.randomUUID()+suffixName;
                 String path = saveFilePath+"/"+fileName;
                 file.transferTo(new File(path));
-                userReport.setImgUrl(path);
+                userReport.setImgUrl("/image/"+fileName);
                 userReport.setOpenId(openId);
                 boolean res = reportService.saveReport(userReport);
                 log.info("res with file:{}",res);

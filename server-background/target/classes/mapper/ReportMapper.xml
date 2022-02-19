@@ -3,7 +3,9 @@
 <mapper namespace="com.ginspiration.serverbackground.mapper.ReportMapper">
     <select id="queryAllNotDealDeReport" resultType="com.ginspiration.serverbackground.entity.common.Report">
         SELECT
-        rpr.`id` id,
+        rpr.`id` repairId,
+        rpt.`id` reportId,
+        rpr.`repair_phone` repairPhone,
         `open_id`,
         `name`,
         `number`,
@@ -16,7 +18,7 @@
         `date`
         FROM `report` rpt,
         `repair` rpr
-        WHERE rpt.`phone` = rpr.`report_phone`
+        WHERE rpt.`id` = rpr.`report_id`
         <if test="status==0">
             AND rpr.`status` = 0
         </if>

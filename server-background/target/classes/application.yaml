@@ -5,6 +5,7 @@ server:
 wechat:
   ui:
     GET_ACCESS_TOKEN_URL: http://localhost:7000/system/getWxAccessToken
+    SEND_REPAIRED_TO_USER: http://localhost:7000/system/sendRepairedToUser
 save:
   file:
     path: D:/GraduationDesign/save_files_path
