@@ -38,6 +38,12 @@ public class AdminController {
         log.info("respCommon:{}",respCommon);
         return respCommon;
     }
+    @PostMapping("/loginOut")
+    @ResponseBody
+    public RespCommon login(){
+        session.invalidate();
+        return new RespCommon(200,"退出登录");
+    }
     @PostMapping("/getUserInfo")
     @ResponseBody
     public RespCommon getUserInfo(){
