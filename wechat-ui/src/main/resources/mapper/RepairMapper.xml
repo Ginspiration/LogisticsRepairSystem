@@ -22,7 +22,7 @@
         description,
         date
     FROM `repair` rpr, `report` rpt
-    WHERE rpt.phone = rpr.report_phone
+    WHERE rpt.id = rpr.report_id
       AND rpt.open_id = #{openId}
 </select>
 
