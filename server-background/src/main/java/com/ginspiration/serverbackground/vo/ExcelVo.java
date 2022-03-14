@@ -31,8 +31,8 @@ import java.time.LocalDateTime;
 @ColumnWidth(20)
 @EqualsAndHashCode(callSuper = false)
 public class ExcelVo implements Serializable {
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 1L;
 
     @ExcelProperty("项目上级单位")
     private String projectParentName;

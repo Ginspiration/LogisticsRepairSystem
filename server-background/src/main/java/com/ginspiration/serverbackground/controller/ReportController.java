@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * <p>
  * 前端控制器
@@ -28,6 +30,12 @@ public class ReportController {
     @ResponseBody
     public RespCommon getReportInfo(@RequestBody PageVo pageVo) {
         return reportService.queryAllReportInfo(pageVo.getCurr(),pageVo.getSize(),pageVo.getStatus());
+    }
+    @PostMapping("/getExcel")
+    @ResponseBody
+    public RespCommon getExcel(@RequestBody PageVo pageVo, HttpServletResponse response) {
+        reportService.exportExcel(response,pageVo.getStatus());
+        return new RespCommon(200,"ok");
     }
 }
 

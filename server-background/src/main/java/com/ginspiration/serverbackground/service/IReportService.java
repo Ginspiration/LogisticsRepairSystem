@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ginspiration.serverbackground.entity.RespCommon;
 import com.ginspiration.serverbackground.entity.common.Report;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * <p>
  *  服务类
@@ -15,4 +17,6 @@ import com.ginspiration.serverbackground.entity.common.Report;
 public interface IReportService extends IService<Report> {
 
     RespCommon queryAllReportInfo(int curr,int size,int status);
+
+    void exportExcel(HttpServletResponse response, int status);
 }
