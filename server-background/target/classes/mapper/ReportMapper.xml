@@ -31,6 +31,27 @@
         <if test="status==3">
             AND rpr.`status` = 3
         </if>
-        ORDER BY date DESC
+        ORDER BY `date` DESC
+    </select>
+    <select id="queryAllByStatus" resultType="com.ginspiration.serverbackground.vo.ExcelVo">
+        SELECT
+            rpt.`name`,
+            rpt.number,
+            rpt.phone,
+            rpt.faculty,
+            rpt.address,
+            rpt.description,
+            rpt.date AS reportDate,
+            rpr.repair_phone AS repairPhone,
+            rpr.repaired_date AS repairedDate,
+            mtn.`name` AS repairName
+        FROM
+            `repair` rpr
+                LEFT JOIN report rpt ON rpr.report_id = rpt.id
+                LEFT JOIN maintainer mtn ON mtn.phone = rpr.repair_phone
+        WHERE
+            rpr.`status` = #{status}
+        ORDER BY
+            rpt.date DESC
     </select>
 </mapper>

@@ -30,7 +30,6 @@ import java.time.LocalDateTime;
 @HeadStyle(horizontalAlignment = HorizontalAlignment.CENTER,
         verticalAlignment = VerticalAlignment.CENTER)
 @ColumnWidth(20)
-@EqualsAndHashCode(callSuper = false)
 public class ExcelVo implements Serializable {
 
     @ExcelProperty("姓名")
@@ -52,7 +51,7 @@ public class ExcelVo implements Serializable {
     private String description;
 
     @ExcelProperty(value = "上报时间",converter = LocalDateTimeConverter.class)
-    private LocalDateTime date;
+    private LocalDateTime reportDate;
 
     @ExcelProperty("维修人姓名")
     private String repairName;
@@ -61,7 +60,7 @@ public class ExcelVo implements Serializable {
     private String repairPhone;
 
     @ExcelProperty(value = "最新维修时间",converter = LocalDateTimeConverter.class)
-    private LocalDateTime repairDate;
+    private LocalDateTime repairedDate;
 
 
 //    @ExcelProperty("项目上级单位")

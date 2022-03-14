@@ -33,10 +33,9 @@ public class ExportUtil {
             if (log.isInfoEnabled()) {
                 log.info("[download] EasyExcel write start");
             }
-
-            EasyExcel.write(response.getOutputStream(), t).autoCloseStream(Boolean.FALSE).sheet(fileName).doWrite(list);
+            EasyExcel.write(response.getOutputStream(), t).autoCloseStream(Boolean.TRUE).sheet(fileName).doWrite(list);
         } catch (Exception e) {
-            log.error("[download] EasyExcel write error:{}", e);
+            e.printStackTrace();
         }
     }
 

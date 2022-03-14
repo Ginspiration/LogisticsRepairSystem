@@ -4,6 +4,7 @@ package com.ginspiration.serverbackground.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ginspiration.serverbackground.entity.common.Report;
+import com.ginspiration.serverbackground.vo.ExcelVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +21,6 @@ import java.util.List;
 @Mapper
 public interface ReportMapper extends BaseMapper<Report> {
     List<Report> queryAllNotDealDeReport(Page<Report> page, @Param("status") int status);
+
+    List<ExcelVo> queryAllByStatus(@Param("status")Integer status);
 }
