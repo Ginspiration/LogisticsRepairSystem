@@ -4,6 +4,7 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentStyle;
 import com.alibaba.excel.annotation.write.style.HeadStyle;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.ginspiration.serverbackground.converter.LocalDateConverter;
 import com.ginspiration.serverbackground.converter.LocalDateTimeConverter;
 import lombok.Data;
@@ -33,56 +34,123 @@ import java.time.LocalDateTime;
 public class ExcelVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @TableField(exist = false)
+    private Integer reportId;
 
-    @ExcelProperty("项目上级单位")
-    private String projectParentName;
+    @TableField(exist = false)
+    private Integer repairId;
 
-    @ExcelProperty("项目名称")
-    private String projectName;
+    @TableField(exist = false)
+    private String repairPhone;
 
-    @ExcelProperty("分部分项")
-    private String subItemName;
+    private Integer id;
 
-    @ExcelProperty("设备设施/人员)")
-    private String riskPointDesc;
+    /**
+     * 上报人微信appId
+     */
+    private String openId;
 
-    @ExcelProperty("潜在风险点/引发事故")
-    private String potentialRiskPoints;
+    /**
+     * 上报人姓名
+     */
+    @ExcelProperty("姓名")
+    private String name;
 
-    @ExcelProperty("事故类型")
-    private String accidentTypeDesc;
+    /**
+     * 学号/教工号
+     */
+    @ExcelProperty("学号")
+    private Long number;
 
-    @ExcelProperty("风险等级")
-    private String dangerLevelDesc;
+    /**
+     * 联系手机
+     */
+    @ExcelProperty("手机")
+    private String phone;
 
-    @ExcelProperty("具体部位")
-    private String position;
+    /**
+     * 院系
+     */
+    @ExcelProperty("院系")
+    private String faculty;
 
-    @ExcelProperty("实施阶段")
-    private String executePhase;
+    /**
+     * 分类
+     */
+//    @ExcelProperty("项目上级单位")
+//    private String sort;
 
-    @ExcelProperty(value = "计划实施开始时间",converter = LocalDateConverter.class)
-    private LocalDate planStartTime;
+    /**
+     * 上报的地址
+     */
+    @ExcelProperty("报修地址")
+    private String address;
 
-    @ExcelProperty(value = "计划实施结束时间",converter = LocalDateConverter.class)
-    private LocalDate planEndTime;
+    /**
+     * 图片
+     */
+//    @ExcelProperty("项目上级单位")
+//    private String imgUrl;
+    /**
+     * 描述
+     */
+    @ExcelProperty("描述")
+    private String description;
 
-    @ExcelProperty("管控层级")
-    private String controlLevelDesc;
-
-
-    @ExcelProperty("责任人")
-    private String responsible;
-
-    @ExcelProperty("管控措施")
-    private String controlMeasures;
-
-    @ExcelProperty("警示方式")
-    private String alarmMethodDesc;
-
-    @ExcelProperty("最近更新人")
-    private String lastControlMemberName;
-
-    @ExcelProperty(value = "更新时间",converter = LocalDateTimeConverter.class)
-    private LocalDateTime controlPersonTime;
+    /**
+     * 上报日期
+     */
+    @ExcelProperty(value = "上报时间",converter = LocalDateTimeConverter.class)
+    private LocalDateTime date;
+//    @ExcelProperty("项目上级单位")
+//    private String projectParentName;
+//
+//    @ExcelProperty("项目名称")
+//    private String projectName;
+//
+//    @ExcelProperty("分部分项")
+//    private String subItemName;
+//
+//    @ExcelProperty("设备设施/人员)")
+//    private String riskPointDesc;
+//
+//    @ExcelProperty("潜在风险点/引发事故")
+//    private String potentialRiskPoints;
+//
+//    @ExcelProperty("事故类型")
+//    private String accidentTypeDesc;
+//
+//    @ExcelProperty("风险等级")
+//    private String dangerLevelDesc;
+//
+//    @ExcelProperty("具体部位")
+//    private String position;
+//
+//    @ExcelProperty("实施阶段")
+//    private String executePhase;
+//
+//    @ExcelProperty(value = "计划实施开始时间",converter = LocalDateConverter.class)
+//    private LocalDate planStartTime;
+//
+//    @ExcelProperty(value = "计划实施结束时间",converter = LocalDateConverter.class)
+//    private LocalDate planEndTime;
+//
+//    @ExcelProperty("管控层级")
+//    private String controlLevelDesc;
+//
+//
+//    @ExcelProperty("责任人")
+//    private String responsible;
+//
+//    @ExcelProperty("管控措施")
+//    private String controlMeasures;
+//
+//    @ExcelProperty("警示方式")
+//    private String alarmMethodDesc;
+//
+//    @ExcelProperty("最近更新人")
+//    private String lastControlMemberName;
+//
+//    @ExcelProperty(value = "更新时间",converter = LocalDateTimeConverter.class)
+//    private LocalDateTime controlPersonTime;
 }
