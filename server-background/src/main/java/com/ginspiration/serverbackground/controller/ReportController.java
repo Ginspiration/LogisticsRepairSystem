@@ -31,7 +31,7 @@ public class ReportController {
     public RespCommon getReportInfo(@RequestBody PageVo pageVo) {
         return reportService.queryAllReportInfo(pageVo.getCurr(),pageVo.getSize(),pageVo.getStatus());
     }
-    @PostMapping("/getExcel")
+    @GetMapping("/getExcel")
     @ResponseBody
     public RespCommon getExcel(@RequestBody PageVo pageVo, HttpServletResponse response) {
         reportService.exportExcel(response,pageVo.getStatus());

@@ -33,75 +33,37 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = false)
 public class ExcelVo implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @TableField(exist = false)
-    private Integer reportId;
-
-    @TableField(exist = false)
-    private Integer repairId;
-
-    @TableField(exist = false)
-    private String repairPhone;
-
-    private Integer id;
-
-    /**
-     * 上报人微信appId
-     */
-    private String openId;
-
-    /**
-     * 上报人姓名
-     */
     @ExcelProperty("姓名")
     private String name;
 
-    /**
-     * 学号/教工号
-     */
     @ExcelProperty("学号")
     private Long number;
 
-    /**
-     * 联系手机
-     */
     @ExcelProperty("手机")
     private String phone;
 
-    /**
-     * 院系
-     */
     @ExcelProperty("院系")
     private String faculty;
 
-    /**
-     * 分类
-     */
-//    @ExcelProperty("项目上级单位")
-//    private String sort;
-
-    /**
-     * 上报的地址
-     */
     @ExcelProperty("报修地址")
     private String address;
 
-    /**
-     * 图片
-     */
-//    @ExcelProperty("项目上级单位")
-//    private String imgUrl;
-    /**
-     * 描述
-     */
     @ExcelProperty("描述")
     private String description;
 
-    /**
-     * 上报日期
-     */
     @ExcelProperty(value = "上报时间",converter = LocalDateTimeConverter.class)
     private LocalDateTime date;
+
+    @ExcelProperty("维修人姓名")
+    private String repairName;
+
+    @ExcelProperty("维修人手机")
+    private String repairPhone;
+
+    @ExcelProperty(value = "最新维修时间",converter = LocalDateTimeConverter.class)
+    private LocalDateTime repairDate;
+
+
 //    @ExcelProperty("项目上级单位")
 //    private String projectParentName;
 //

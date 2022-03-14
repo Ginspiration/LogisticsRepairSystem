@@ -6,9 +6,11 @@ import cn.hutool.extra.cglib.CglibUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ginspiration.serverbackground.entity.RespCommon;
+import com.ginspiration.serverbackground.entity.common.Maintainer;
 import com.ginspiration.serverbackground.entity.common.Report;
 import com.ginspiration.serverbackground.mapper.RepairMapper;
 import com.ginspiration.serverbackground.mapper.ReportMapper;
+import com.ginspiration.serverbackground.service.IMaintainerService;
 import com.ginspiration.serverbackground.service.IReportService;
 import com.ginspiration.serverbackground.util.ExportUtil;
 import com.ginspiration.serverbackground.vo.ExcelVo;
@@ -35,6 +37,8 @@ public class ReportServiceImpl extends ServiceImpl<ReportMapper, Report> impleme
 
     @Autowired
     private ReportMapper reportMapper;
+    @Autowired
+    private IMaintainerService maintainerService;
 
     @Override
     public RespCommon queryAllReportInfo(int curr, int size,int status) {
@@ -56,7 +60,13 @@ public class ReportServiceImpl extends ServiceImpl<ReportMapper, Report> impleme
     public void exportExcel(HttpServletResponse response,int status) {
         Page<Report> page = new Page<>(0,-1);
         List<Report> reports = reportMapper.queryAllNotDealDeReport(page,status);
+        log.info("report message:{}",reports);
         List<ExcelVo> excelVos = CglibUtil.copyList(reports, ExcelVo::new);
+
+        //维修人信息
+
+
+
         ExportUtil.download(response, "表格", excelVos, ExcelVo.class);
     }
 
