@@ -6,7 +6,9 @@ import com.ginspiration.serverbackground.entity.common.Announce;
 import com.ginspiration.serverbackground.enumeration.WxURL;
 import com.ginspiration.serverbackground.mapper.AnnounceMapper;
 import com.ginspiration.serverbackground.service.IAnnounceService;
+import com.ginspiration.serverbackground.vo.PublishVo;
 import net.sf.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,10 +16,15 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class AnnounceServiceImpl extends ServiceImpl<AnnounceMapper, Announce> implements IAnnounceService {
+
+    @Autowired
+    private AnnounceMapper announceMapper;
+
 
     @Override
     /**
@@ -184,5 +191,10 @@ public class AnnounceServiceImpl extends ServiceImpl<AnnounceMapper, Announce> i
             e.printStackTrace();
         }
         return upLoadTempImg;
+    }
+
+    @Override
+    public List<PublishVo> getPublish(){
+        return announceMapper.getPublish();
     }
 }

@@ -10,7 +10,7 @@ wx:
   information:
     appID: wx93302bba2b8abf69
     appsecret: 0858c610c4e73cd2051ed0f9ba143db2
-    templateId: JdU6NNxe3augb6f_cPBSV_GewqGSL8glT5--DLzWIRc #Og7wHyxZy6uRSbHVBs4cz1zfjNTPqb49mHld9I5GPGc #JA81IIX8blVklRcwn84Akf34mxuToK_6bnz_1oKtMCU
+    templateId: Og7wHyxZy6uRSbHVBs4cz1zfjNTPqb49mHld9I5GPGc #Og7wHyxZy6uRSbHVBs4cz1zfjNTPqb49mHld9I5GPGc #JA81IIX8blVklRcwn84Akf34mxuToK_6bnz_1oKtMCU
     TOKEN: Ginspiration
     authorizedScope: snsapi_base #或snsapi_userinfo,用于获取用户基本信息的方式
 

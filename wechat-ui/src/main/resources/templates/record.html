@@ -18,6 +18,13 @@
         <div class="weui-form__desc">我的申请记录</div>
     </div>
     <div class="weui-form-preview">
+<!--        <table border="2">-->
+<!--            <tr>-->
+<!--                <td>1</td>-->
+<!--                <td>2</td>-->
+<!--                <td>3</td>-->
+<!--            </tr>-->
+<!--        </table>-->
         <!--        <br/>-->
         <!--        <div class="weui-form-preview__hd">-->
         <!--            <label class="weui-form-preview__label" id="name">name</label>-->
@@ -74,29 +81,52 @@
                         repairStatus = '维修状态异常,正在处理';
                         break;
                 }
-                $('.weui-form-preview').append("\n" +
-                    "        <div class=\"weui-form-preview__bd\">\n" +
-                    "            <div class=\"weui-form-preview__item\">\n" +
-                    "                <label class=\"weui-form-preview__label\">上报人：</label>\n" +
-                    "                <span class=\"weui-form-preview__value\">" + data.name + "</span>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"weui-form-preview__item\">\n" +
-                    "                <label class=\"weui-form-preview__label\">联系电话：</label>\n" +
-                    "                <span class=\"weui-form-preview__value\" id=\"phone\">" + data.phone + "</span>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"weui-form-preview__item\">\n" +
-                    "                <label class=\"weui-form-preview__label\">报修地址：</label>\n" +
-                    "                <span class=\"weui-form-preview__value\" id=\"address\">" + data.address + "</span>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"weui-form-preview__item\">\n" +
-                    "                <label class=\"weui-form-preview__label\">描述：</label>\n" +
-                    "                <span class=\"weui-form-preview__value\" id=\"description\">" + data.description + "</span>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"weui-form-preview__item\">\n" +
-                    "                <label class=\"weui-form-preview__label\">状态：</label>\n" +
-                    "                <span class=\"weui-form-preview__value\">" + repairStatus + "</span>\n" +
-                    "            </div>\n" +
-                    "        </div>")
+                $('.weui-form-preview').append("" +
+                    "        <table border=\"1\">\n" +
+                    "            <tr>\n" +
+                    "                <td style='width: 70px'>上报人</td>\n" +
+                    "                <td>" + data.name + "</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>联系电话</td>\n" +
+                    "                <td>" + data.phone + "</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>报修地址</td>\n" +
+                    "                <td>" + data.address + "</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>描述</td>\n" +
+                    "                <td>" + data.description + "</td>\n" +
+                    "            </tr>\n" +
+                    "            <tr>\n" +
+                    "                <td>状态</td>\n" +
+                    "                <td>" + repairStatus + "</td>\n" +
+                    "            </tr>\n" +
+                    "        </table><br/><br/>")
+                // $('.weui-form-preview').append("\n" +
+                //     "        <div class=\"weui-form-preview__bd\">\n" +
+                //     "            <div class=\"weui-form-preview__item\">\n" +
+                //     "                <label class=\"weui-form-preview__label\">上报人：</label>\n" +
+                //     "                <span class=\"weui-form-preview__value\">" + data.name + "</span>\n" +
+                //     "            </div>\n" +
+                //     "            <div class=\"weui-form-preview__item\">\n" +
+                //     "                <label class=\"weui-form-preview__label\">联系电话：</label>\n" +
+                //     "                <span class=\"weui-form-preview__value\" id=\"phone\">" + data.phone + "</span>\n" +
+                //     "            </div>\n" +
+                //     "            <div class=\"weui-form-preview__item\">\n" +
+                //     "                <label class=\"weui-form-preview__label\">报修地址：</label>\n" +
+                //     "                <span class=\"weui-form-preview__value\" id=\"address\">" + data.address + "</span>\n" +
+                //     "            </div>\n" +
+                //     "            <div class=\"weui-form-preview__item\">\n" +
+                //     "                <label class=\"weui-form-preview__label\">描述：</label>\n" +
+                //     "                <span class=\"weui-form-preview__value\" id=\"description\">" + data.description + "</span>\n" +
+                //     "            </div>\n" +
+                //     "            <div class=\"weui-form-preview__item\">\n" +
+                //     "                <label class=\"weui-form-preview__label\">状态：</label>\n" +
+                //     "                <span class=\"weui-form-preview__value\">" + repairStatus + "</span>\n" +
+                //     "            </div>\n" +
+                //     "        </div>")
             })
         })
 </script>

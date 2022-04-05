@@ -9,6 +9,8 @@ wechat:
 save:
   file:
     path: D:/GraduationDesign/save_files_path
+    announceFile: D:/GraduationDesign/announce_file
+
 spring:
   servlet:
     multipart:

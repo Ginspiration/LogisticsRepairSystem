@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ginspiration.repair.mapper.AnnounceMapper">
+<mapper namespace="com.ginspiration.serverbackground.mapper.AnnounceMapper">
 
 
+    <resultMap id="publish" type="com.ginspiration.serverbackground.vo.PublishVo">
+        <result property="id" column="id"/>
+        <result property="adminId" column="adminId"/>
+        <result property="adminName" column="adminName"/>
+        <collection property="announce" resultMap="announce"/>
+    </resultMap>
+    <resultMap id="announce" type="com.ginspiration.serverbackground.entity.common.Announce">
+        <result property="adminUser" column="admin_user"/>
+        <result property="publisher" column="publisher"/>
+        <result property="title" column="title"/>
+        <result property="imgUrl" column="img_url"/>
+        <result property="content" column="content"/>
+        <result property="dateStr" column="dateStr"/>
+    </resultMap>
+    <select id="getPublish" resultMap="publish">
+        SELECT
+            an.id,
+            an.admin_user,
+            an.publisher,
+            an.title,
+            an.img_url,
+            an.content,
+            DATE_FORMAT( an.date, '%Y-%m-%d %H:%i:%s' ) AS dateStr,
+            ad.id AS adminId,
+            ad.NAME AS adminName
+        FROM
+            announce an
+                LEFT JOIN admin ad ON an.admin_user = ad.id
+        ORDER BY `date` DESC
+    </select>
 
 </mapper>

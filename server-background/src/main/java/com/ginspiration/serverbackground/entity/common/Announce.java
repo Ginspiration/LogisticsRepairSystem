@@ -1,6 +1,7 @@
 package com.ginspiration.serverbackground.entity.common;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -53,7 +54,17 @@ public class Announce implements Serializable {
      */
       private LocalDateTime date;
 
-    
+      @TableField(exist = false)
+      private String dateStr;
+
+    public String getDateStr() {
+        return dateStr;
+    }
+
+    public void setDateStr(String dateStr) {
+        this.dateStr = dateStr;
+    }
+
     public Integer getId() {
         return id;
     }
