@@ -34,6 +34,7 @@ public class AdminController {
     @PostMapping("/login")
     @ResponseBody
     public RespCommon login(@RequestBody Admin admin){
+        session.invalidate();
         RespCommon respCommon = adminService.loginVerify(admin);
         log.info("respCommon:{}",respCommon);
         return respCommon;
@@ -47,15 +48,14 @@ public class AdminController {
     @PostMapping("/getUserInfo")
     @ResponseBody
     public RespCommon getUserInfo(){
-        log.info("用户在线:{}",session.getAttribute("AdminUser"));
-        return new RespCommon(200,session.getAttribute("AdminUser"));
-    }
-
-    @PostMapping("/saveOrUpdate")
-    @ResponseBody
-    public RespCommon saveOrUpdate(@RequestBody Admin admin){
-        adminService.adminSaveOrUpdate(admin);
-        return new RespCommon(200,"操作成功");
+        Object adminUser = session.getAttribute("AdminUser");
+        log.info("用户在线:{}",adminUser);
+        //验证是否是超级管理员
+        Object superAdmin = session.getAttribute("SuperAdmin");
+        if ( superAdmin != null) {
+           return new RespCommon(110,superAdmin);
+        }
+        return new RespCommon(200,adminUser);
     }
     @PostMapping("/getAllAdmin")
     @ResponseBody
@@ -63,10 +63,5 @@ public class AdminController {
         List<Admin> allAdmin = adminService.getAllAdmin();
         return new RespCommon(200,allAdmin);
     }
-    @PostMapping("/del")
-    @ResponseBody
-    public RespCommon del(@RequestBody GetIdVo getIdVo){
-        adminService.del(getIdVo.getId());
-        return new RespCommon(200,"操作成功");
-    }
+
 }
